@@ -1,3 +1,0 @@
-git remote add origin https://github.com/thexwool/Mobile_React-Native.git
-git branch -M main
-git push -u origin main
