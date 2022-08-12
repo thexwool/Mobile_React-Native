@@ -49,9 +49,62 @@ export const styles = StyleSheet.create({
         width: 62,
         height: 62,
         borderRadius: 8,
-        backgroundColor: '#1E6F9F',
+        backgroundColor: '#3C82AC',
         marginRight: 25,
         alignItems: 'center',
         justifyContent: 'center'
-    }
+    },
+    allCount:{
+        flexDirection: 'row',
+        justifyContent: "space-between",
+        marginHorizontal: 25,
+        marginTop: -10
+    },
+    createdCount:{
+        fontSize: 15,
+        fontFamily: 'Roboto',
+        fontWeight: 'bold',
+        color: '#489ACC'
+    },
+    completedCount:{
+        fontSize: 15,
+        fontWeight: 'bold',
+        color: '#8284FA'
+    },
+    count:{
+        fontSize: 15,
+        fontWeight: 'bold',
+        marginLeft: 7,
+        color: '#D9D9D9',
+        backgroundColor: '#333333', //#333333
+        borderRadius: 16,
+        paddingHorizontal: 10
+    },
+    line:{
+        backgroundColor: '#333333',
+        padding: 0.5,
+        marginHorizontal: 25,
+        marginTop: 20
+    },
+    listEmpty:{
+        color: '#808080',
+        textAlign: 'center',
+        marginTop: 40
+    },
+    emptyIcon:{
+        textAlign: 'center',
+        color: '#3D3D3D',
+        marginBottom: 10
+    },
+    emptyText1:{
+        textAlign: 'center',
+        color: '#808080',
+        fontWeight: 'bold',
+        fontSize: 16
+    },
+    emptyText2:{
+        textAlign: 'center',
+        color: '#808080',
+        fontSize: 15
+    },
 })

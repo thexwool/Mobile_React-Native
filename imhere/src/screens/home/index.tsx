@@ -17,7 +17,6 @@ export default function Home(){
     }
 
     const handleParticipantRemove = (name: string) => {
-        
         Alert.alert('Remover', `Deseja remover o participante ${name}?`, [
             {
                 text: 'Sim',
