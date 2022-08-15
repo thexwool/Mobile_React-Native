@@ -1,32 +1,22 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#191919',
-        padding: 24
-    },
     topContainer:{
-        height: 160,
+        height: '20%',
         backgroundColor: '#0D0D0D',
-
     },
     bottomContainer:{
-        height: '100%',
+        height: '80%',
         backgroundColor: '#191919'
     },
     title: {
         fontFamily: 'Roboto',
         color: '#4EA8DE',
         fontSize: 34,
-        marginTop: 50,
+        marginVertical: 40,
         textAlign: 'center',
         marginRight: 30,
         fontWeight: 'bold'
-    },
-    icon: {
-        backgroundColor: 'yellow',
-        width: 200
     },
     form: {
         width: '100%',
@@ -62,13 +52,13 @@ export const styles = StyleSheet.create({
         marginBottom: 20
     },
     createdCount:{
-        fontSize: 15,
+        fontSize: 16,
         fontFamily: 'Roboto',
         fontWeight: 'bold',
         color: '#489ACC'
     },
     completedCount:{
-        fontSize: 15,
+        fontSize: 16,
         fontFamily: 'Roboto',
         fontWeight: 'bold',
         color: '#8284FA'
@@ -84,7 +74,7 @@ export const styles = StyleSheet.create({
     },
     line:{
         backgroundColor: '#333333',
-        padding: 0.5,
+        padding: 1,
         marginHorizontal: 25,
     },
     listEmpty:{
@@ -101,11 +91,11 @@ export const styles = StyleSheet.create({
         textAlign: 'center',
         color: '#808080',
         fontWeight: 'bold',
-        fontSize: 16
+        fontSize: 17
     },
     emptyText2:{
         textAlign: 'center',
         color: '#808080',
-        fontSize: 15
+        fontSize: 16
     },
 })

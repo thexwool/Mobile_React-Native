@@ -12,10 +12,13 @@ export default function Home(){
     const [completed, setCompleted] = useState(0)
 
     const handleTaskRemove = (nameTask: string) => {
-        Alert.alert('Remover', `Deseja remover o participante ${nameTask}?`, [
+        Alert.alert('Remover', `Deseja mesmo remover esta tarefa?`, [
             {
                 text: 'Sim',
-                onPress: () => setTasks(prevState => prevState.filter(t => t !== nameTask))
+                onPress: () => {
+                    setTasks(prevState => prevState.filter(t => t !== nameTask))
+                    setCreated(prevState => prevState - 1)
+                }
             },
             {
                 text: 'Não',
@@ -30,6 +33,7 @@ export default function Home(){
         }
 
         setTasks(prevState => [...prevState, taskName])
+        setCreated(prevState => prevState + 1)
         setTaskName('')
     }
 
