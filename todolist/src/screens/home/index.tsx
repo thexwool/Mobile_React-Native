@@ -1,15 +1,40 @@
-import { Text, TextInput, View, TouchableOpacity, FlatList } from "react-native"
+import { Text, TextInput, View, TouchableOpacity, Alert, FlatList } from "react-native"
 import { styles } from "./styles"
+import { Task } from "../../components/Task"
 import { AntDesign } from '@expo/vector-icons'
-import { Foundation } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons'
 import { useState } from "react"
 
 export default function Home(){
+    const [tasks, setTasks] = useState<string[]>([])
+    const [taskName, setTaskName] = useState('')
     const [created, setCreated] = useState(0)
     const [completed, setCompleted] = useState(0)
 
+    const handleTaskRemove = (nameTask: string) => {
+        Alert.alert('Remover', `Deseja remover o participante ${nameTask}?`, [
+            {
+                text: 'Sim',
+                onPress: () => setTasks(prevState => prevState.filter(t => t !== nameTask))
+            },
+            {
+                text: 'Não',
+                style: 'cancel'
+            }
+        ])
+    }
+
+    const handleTaskAdd = () => {
+        if(tasks.includes(taskName)){
+            return Alert.alert('Participante existe', 'Já existe um participante na lista com esse nome.')
+        }
+
+        setTasks(prevState => [...prevState, taskName])
+        setTaskName('')
+    }
+
     return(
-        <>
+        <View>
             <View style={styles.topContainer}>
                 <Text style={styles.title}>
                     <AntDesign name="rocket1" size={30} color='#4EA8DE' />
@@ -24,13 +49,15 @@ export default function Home(){
                 <View style={styles.form}>
                     <TextInput 
                         style={styles.input}
-                        placeholder='Adicione uma tarefa'
+                        placeholder='Adicione uma nova tarefa'
                         placeholderTextColor='#808080'
+                        onChangeText={setTaskName}
+                        value={taskName}
                     />
 
-                    <TouchableOpacity style={styles.button}>
+                    <TouchableOpacity style={styles.button} onPress={handleTaskAdd}>
                         <Text>
-                            <AntDesign name="pluscircleo" size={24} color="white" />
+                            <AntDesign name="pluscircleo" size={24} color="#FFF" />
                         </Text>
                     </TouchableOpacity>
                 </View>
@@ -56,12 +83,22 @@ export default function Home(){
                 </View>
 
                 <FlatList
+                    data={tasks}
+                    keyExtractor={item => item}
+                    renderItem={({ item }) => (
+                        <Task
+                            key={item}
+                            nameTask={item}
+                            onRemove={() => handleTaskRemove(item)}
+                        />
+                    )}
+                    showsVerticalScrollIndicator={false}
                     ListEmptyComponent={() => (
                         <>
                             <View style={styles.line}></View>
                             <View style={styles.listEmpty}>
                                 <Text style={styles.emptyIcon}>
-                                    <Foundation name="clipboard-pencil" size={55} />
+                                    <Ionicons name="ios-clipboard-outline" size={55} color='#3D3D3D' />
                                 </Text>
                                 <Text style={styles.emptyText1}>
                                     Você ainda não tem tarefas cadastradas
@@ -74,6 +111,6 @@ export default function Home(){
                     )}
                 />
             </View>
-        </>
+        </View>
     )
 }

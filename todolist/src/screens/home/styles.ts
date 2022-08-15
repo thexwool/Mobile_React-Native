@@ -41,7 +41,7 @@ export const styles = StyleSheet.create({
         borderRadius: 5,
         color: '#FDFCFE',
         padding: 16,
-        fontSize: 16,
+        fontSize: 18,
         marginRight: 6,
         marginLeft: 25
     },
@@ -58,7 +58,8 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: "space-between",
         marginHorizontal: 25,
-        marginTop: -10
+        marginTop: -10,
+        marginBottom: 20
     },
     createdCount:{
         fontSize: 15,
@@ -68,6 +69,7 @@ export const styles = StyleSheet.create({
     },
     completedCount:{
         fontSize: 15,
+        fontFamily: 'Roboto',
         fontWeight: 'bold',
         color: '#8284FA'
     },
@@ -84,7 +86,6 @@ export const styles = StyleSheet.create({
         backgroundColor: '#333333',
         padding: 0.5,
         marginHorizontal: 25,
-        marginTop: 20
     },
     listEmpty:{
         color: '#808080',
