@@ -11,6 +11,17 @@ export default function Home(){
     const [created, setCreated] = useState(0)
     const [completed, setCompleted] = useState(0)
 
+
+    const handleTaskAdd = () => {
+        if(tasks.includes(taskName)){
+            return Alert.alert('Participante existe', 'Já existe um participante na lista com esse nome.')
+        }
+
+        setTasks(prevState => [...prevState, taskName])
+        setCreated(prevState => prevState + 1)
+        setTaskName('')
+    }
+
     const handleTaskRemove = (nameTask: string) => {
         Alert.alert('Remover', `Deseja mesmo remover esta tarefa?`, [
             {
@@ -25,16 +36,6 @@ export default function Home(){
                 style: 'cancel'
             }
         ])
-    }
-
-    const handleTaskAdd = () => {
-        if(tasks.includes(taskName)){
-            return Alert.alert('Participante existe', 'Já existe um participante na lista com esse nome.')
-        }
-
-        setTasks(prevState => [...prevState, taskName])
-        setCreated(prevState => prevState + 1)
-        setTaskName('')
     }
 
     return(
